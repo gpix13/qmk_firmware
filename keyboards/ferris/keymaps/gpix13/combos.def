@@ -1,0 +1,10 @@
+// Right Hand
+COMB(IP_QUOT,       KC_QUOT,  KC_I, KC_P)
+COMB(UP_DQUO,       KC_DQUO,  KC_U, KC_P)
+//COMB(OP_DEL,        KC_DEL,   KC_O, KC_P)
+COMB(COMM_DOT_UNDS, KC_UNDS,  KC_COMM, KC_DOT)
+SUBS(VIM_SAVE,      ":w",     KC_M, KC_COMM)
+SUBS(VIM_SAVE_QUIT, ":wq",    KC_M, KC_COMM, KC_DOT)
+
+// Left Hand
+//COMB(WE_TAB,     KC_ESC,      KC_W, KC_E)
