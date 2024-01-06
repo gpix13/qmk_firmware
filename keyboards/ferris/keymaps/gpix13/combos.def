@@ -1,10 +1,15 @@
-// Right Hand
-COMB(IP_QUOT,       KC_QUOT,  KC_I, KC_P)
-COMB(UP_DQUO,       KC_DQUO,  KC_U, KC_P)
-//COMB(OP_DEL,        KC_DEL,   KC_O, KC_P)
-COMB(COMM_DOT_UNDS, KC_UNDS,  KC_COMM, KC_DOT)
-SUBS(VIM_SAVE,      ":w",     KC_M, KC_COMM)
-SUBS(VIM_SAVE_QUIT, ":wq",    KC_M, KC_COMM, KC_DOT)
+COMB(SNGLQUOT,       KC_QUOT,  KC_U, KC_O)
+COMB(EQUALS,         KC_EQL,   KC_U, KC_I)
+COMB(PIPE,           KC_PIPE,  KC_I, KC_O)
+COMB(BACKSLASH,      KC_BSLS,  KC_COMMA, KC_DOT)
+COMB(LEFT_BRKT,      KC_LBRC,  KC_C, KC_V)
+COMB(RIGHT_BRKT,     KC_RBRC,  KC_M, KC_COMMA)
+COMB(LEFT_CBR,       KC_LCBR,  KC_V, KC_B)
+COMB(RIGHT_CBR,      KC_RCBR,  KC_N, KC_M)
+COMB(HYPHEN,         KC_MINS,  KC_R, KC_T)
+COMB(UNDERSCORE,     KC_UNDS,  KC_Y, KC_U)
 
-// Left Hand
-//COMB(WE_TAB,     KC_ESC,      KC_W, KC_E)
+// vertical combos
+COMB(TILDE,          KC_TILD,  KC_F, KC_R)
+COMB(GRAVE,           KC_GRV,  KC_J, KC_U)
+

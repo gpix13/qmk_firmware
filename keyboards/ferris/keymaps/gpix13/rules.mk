@@ -6,5 +6,3 @@ TAP_DANCE_ENABLE = no
 LTO_ENABLE = yes
 BOOTLOADER = atmel-dfu
 
-SRC += oneshot.c
-SRC += swapper.c
