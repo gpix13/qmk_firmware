@@ -2,34 +2,86 @@
 #include QMK_KEYBOARD_H
 #include "keycodes.h"
 
+// layer definitions
+enum layers {
+    _QWERTY,  // the default layer
+    _LOWER,   // extra layer
+    _RAISE,   // frequently used symbols
+    _ADJUST,  // infrequently used symbols
+    _ONESHOT, // oneshot functions
+};
+
 // Tap Dance definitions
 enum {
     DANCE_1,
     DANCE_2,
 };
 
+// miscellaneous shortcuts
+#define xxxxxxx XXXXXXX
+
+// thumb key assignments
+#define LOW_TAB  LT(_LOWER, KC_TAB)
+#define BSP_RSE  LT(_RAISE, KC_BSPC)
+#define SFT_ENT  LSFT_T(KC_ENT)
+
+// Home Row Mods
+// left hand
+#define HR_A   LSFT_T(KC_A)
+#define HR_S   LCTL_T(KC_S)
+#define HR_D   LALT_T(KC_D)
+#define HR_F   LGUI_T(KC_F)
+// right hand
+#define HR_J   LGUI_T(KC_J)
+#define HR_K   LALT_T(KC_K)
+#define HR_L   LCTL_T(KC_L)
+#define HR_SC  LSFT_T(KC_SCLN)
+
+// Tap Dance
+// ---------------------------
+// tap: Q, hold: COPY
+#define TD_Q   TD(DANCE_1)
+// tap: W, hold: PASTE
+#define TD_W   TD(DANCE_2)
+
+// shortcuts
+#define HOME     G(KC_LEFT)
+#define END      G(KC_RIGHT)
+#define COPY     G(KC_C)
+#define PASTE    G(KC_V)
+
+// oneshots
+#define OSALT    OSM(MOD_LALT)
+#define OSCTL    OSM(MOD_LCTL)
+#define OSGUI    OSM(MOD_LGUI)
+#define OSSFT    OSM(MOD_LSFT)
+#define SCREEN4  G(S(KC_4))
+#define SCREEN5  G(S(KC_5))
+#define DIVVY    G(KC_E)
+#define ONEPASS  G(KC_NONE)
+
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_QWERTY] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      XXXXXXX,    TD_Q,    TD_W,    KC_E,    KC_R,    KC_T,                         KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, XXXXXXX,
+       KC_TAB,    TD_Q,    TD_W,    KC_E,    KC_R,    KC_T,                         KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,  KC_ESC,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX,    HR_A,    HR_S,    HR_D,    HR_F,    KC_G,                         KC_H,    HR_J,    HR_K,    HR_L,   HR_SC, XXXXXXX,
+        OSCTL,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                         KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, KC_QUOT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, XXXXXXX,
+        OSGUI,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,  KC_ENT,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          XXXXXXX, LOW_TAB, SFT_ENT,     KC_SPC, BSP_RSE, XXXXXXX
+                                            OSALT, LOW_TAB,   OSSFT,     KC_SPC, BSP_RSE, OSL(4)
                                       //`--------------------------'  `--------------------------'
   ),
 
   [_LOWER] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      XXXXXXX, KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC,                      KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, XXXXXXX,
+      xxxxxxx, KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC,                      KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, xxxxxxx,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                      KC_MINS,  KC_EQL,  KC_GRV, KC_LBRC, KC_RBRC, XXXXXXX,
+      xxxxxxx,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                      KC_MINS,  KC_EQL,  KC_GRV, KC_LBRC, KC_RBRC, xxxxxxx,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,                      KC_UNDS, KC_PLUS, KC_TILD, KC_LCBR, KC_RCBR, XXXXXXX,
+      xxxxxxx,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,                      KC_UNDS, KC_PLUS, KC_TILD, KC_LCBR, KC_RCBR, xxxxxxx,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           _______, _______, _______,    _______, _______, _______
                                       //`--------------------------'  `--------------------------'
@@ -37,11 +89,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_RAISE] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      XXXXXXX,  KC_ESC, XXXXXXX, XXXXXXX, RGB_HUI, RGB_SAI,                      XXXXXXX, KC_PGUP, KC_PGDN,    HOME,     END, XXXXXXX,
+      xxxxxxx, xxxxxxx, xxxxxxx, xxxxxxx, RGB_HUI, RGB_SAI,                      xxxxxxx, KC_PGUP, KC_PGDN,    HOME,     END, xxxxxxx,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, _______, _______, _______, _______, RGB_TOG,                      KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, XXXXXXX, XXXXXXX,
+      xxxxxxx, _______, _______, _______, _______, RGB_TOG,                      KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, xxxxxxx, xxxxxxx,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, RGB_HUD, RGB_SAD,                      XXXXXXX, KC_BSLS, KC_PIPE, KC_DQUO, KC_QUOT, XXXXXXX,
+      xxxxxxx, xxxxxxx, xxxxxxx, xxxxxxx, RGB_HUD, RGB_SAD,                      xxxxxxx, KC_BSLS, KC_PIPE, xxxxxxx, xxxxxxx, xxxxxxx,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------
                                           _______, _______, _______,    _______, _______, _______
                                       //`--------------------------'  `--------------------------'
@@ -49,13 +101,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_ADJUST] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      XXXXXXX ,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                        KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10, XXXXXXX,
+      xxxxxxx ,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                        KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10, xxxxxxx,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      xxxxxxx, xxxxxxx, xxxxxxx, xxxxxxx, xxxxxxx, xxxxxxx,                      xxxxxxx, xxxxxxx, xxxxxxx, xxxxxxx, xxxxxxx, xxxxxxx,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, QK_BOOT,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      xxxxxxx, xxxxxxx, xxxxxxx, xxxxxxx, xxxxxxx, QK_BOOT,                      xxxxxxx, xxxxxxx, xxxxxxx, xxxxxxx, xxxxxxx, xxxxxxx,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX
+                                          xxxxxxx, xxxxxxx, xxxxxxx,    xxxxxxx, xxxxxxx, xxxxxxx
+                                      //`--------------------------'  `--------------------------'
+  ),
+
+  [_ONESHOT] = LAYOUT_split_3x6_3(
+  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
+      xxxxxxx, xxxxxxx, xxxxxxx, xxxxxxx, xxxxxxx, SCREEN4,                      xxxxxxx, xxxxxxx, xxxxxxx, xxxxxxx, xxxxxxx, xxxxxxx,
+  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+      xxxxxxx, xxxxxxx, xxxxxxx, xxxxxxx, xxxxxxx, SCREEN5,                      xxxxxxx, xxxxxxx, xxxxxxx, xxxxxxx, xxxxxxx, xxxxxxx,
+  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+      xxxxxxx, xxxxxxx, xxxxxxx, xxxxxxx, xxxxxxx,   DIVVY,                      xxxxxxx, xxxxxxx, xxxxxxx, xxxxxxx, xxxxxxx, xxxxxxx,
+  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
+                                          xxxxxxx, xxxxxxx, xxxxxxx,    xxxxxxx, xxxxxxx, xxxxxxx
                                       //`--------------------------'  `--------------------------'
   ),
 
