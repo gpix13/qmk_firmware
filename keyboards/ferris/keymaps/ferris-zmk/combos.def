@@ -1,0 +1,22 @@
+// Left top row
+COMB(lcurly,               KC_LCBR,        KC_R, KC_T)
+
+// Right top row
+COMB(rcurly,               KC_RCBR,        KC_Y, KC_U)
+COMB(eql,                  KC_EQL,         KC_U, KC_I)
+
+// Left home row
+COMB(lparen,               KC_LPRN,        LGUI_T(KC_F), KC_G)
+COMB(dquo,                 KC_DQUO,        LCTL_T(KC_S), LGUI_T(KC_F))
+
+// Right home row
+COMB(rparen,               KC_RPRN,        KC_H, LGUI_T(KC_J))
+COMB(squo,                 KC_QUOT,        LGUI_T(KC_J), LCTL_T(KC_L))
+
+// Left bottom row
+COMB(lbracket,             KC_LBRC,        KC_V, KC_B)
+COMB(copy,                 G(KC_C),        KC_X, KC_C)
+COMB(paste,                G(KC_V),        KC_C, KC_V)
+
+// Right bottom row
+COMB(rbracket,             KC_RBRC,        KC_N, KC_M)
