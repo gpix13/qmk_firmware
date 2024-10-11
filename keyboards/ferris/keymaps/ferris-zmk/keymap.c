@@ -122,9 +122,10 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case BSP_RSE:
-        case SFT_ENT:
         case LOW_TAB:
             return 150;
+		case SFT_ENT:
+			return 110;
         case HR_A:
         case HR_S:
             return TAPPING_TERM + 125;
