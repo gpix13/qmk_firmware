@@ -47,18 +47,18 @@ enum {
 // shortcuts
 #define HOME     G(KC_LEFT)
 #define END      G(KC_RIGHT)
-#define COPY     G(KC_C)
-#define PASTE    G(KC_V)
+// #define COPY     G(KC_C)
+// #define PASTE    G(KC_V)
 
 // oneshots
-#define OSALT    OSM(MOD_LALT)
-#define OSCTL    OSM(MOD_LCTL)
-#define OSGUI    OSM(MOD_LGUI)
-#define OSSFT    OSM(MOD_LSFT)
+// #define OSALT    OSM(MOD_LALT)
+// #define OSCTL    OSM(MOD_LCTL)
+// #define OSGUI    OSM(MOD_LGUI)
+// #define OSSFT    OSM(MOD_LSFT)
 #define SCREEN4  G(S(KC_4))
 #define SCREEN5  G(S(KC_5))
-#define DIVVY    G(KC_E)
-#define ONEPASS  G(KC_NONE)
+// #define DIVVY    G(KC_E)
+// #define ONEPASS  G(KC_NONE)
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -67,11 +67,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,--------------------------------------------.                    ,--------------------------------------------.
          KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                         KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,
   //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
-         HR_A,    HR_S,    HR_D,    HR_F,    KC_G,                         KC_H,    HR_J,    HR_K,    HR_L,   HR_SC,
+         KC_A,    HR_S,    HR_D,    HR_F,    KC_G,                         KC_H,    HR_J,    HR_K,    HR_L, KC_SCLN,
   //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
          KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,
   //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
-                                 LOW_TAB, SFT_ENT,                       KC_SPC, BSP_RSE
+                              MO(_LOWER), KC_LSFT,                       KC_SPC, BSP_RSE
                              //`-----------------'                    `-----------------'
   ),
 
@@ -93,7 +93,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
       _______, _______, _______, KC_MNXT, KC_VOLU,                      KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, _______,
   //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
-      _______, _______, _______, KC_MPRV, KC_VOLD,                      _______, _______, _______, _______, _______,
+      _______, _______, _______, KC_MPRV, KC_VOLD,                      _______, SCREEN4, SCREEN5, _______, _______,
   //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
                                  _______, _______,                      _______, _______
                              //`-----------------'                    `-----------------'

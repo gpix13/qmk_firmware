@@ -12,6 +12,7 @@ COMB(dquo,                 KC_DQUO,        LCTL_T(KC_S), LGUI_T(KC_F))
 // Right home row
 COMB(rparen,               KC_RPRN,        KC_H, LGUI_T(KC_J))
 COMB(squo,                 KC_QUOT,        LGUI_T(KC_J), LCTL_T(KC_L))
+COMB(entr,                 KC_ENT,         LGUI_T(KC_J), LALT_T(KC_K))
 
 // Left bottom row
 COMB(lbracket,             KC_LBRC,        KC_V, KC_B)
@@ -20,3 +21,4 @@ COMB(paste,                G(KC_V),        KC_C, KC_V)
 
 // Right bottom row
 COMB(rbracket,             KC_RBRC,        KC_N, KC_M)
+COMB(tab,                  KC_TAB,         KC_M, KC_COMM)
