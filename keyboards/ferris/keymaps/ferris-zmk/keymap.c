@@ -27,17 +27,21 @@ enum {
 #define BSP_CTL  LCTL_T(KC_BSPC)
 //#define SFT_ENT  LSFT_T(KC_ENT)
 
-// Home Row Mods
+// Home Row Layers
 // left hand
-#define HR_A   LSFT_T(KC_A)
-#define HR_S   LCTL_T(KC_S)
-#define HR_D   LALT_T(KC_D)
-#define HR_F   LGUI_T(KC_F)
+#define HR_F   LT(_LOWER, KC_F)
+#define HR_D   LT(_RAISE, KC_D)
 // right hand
-#define HR_J   LGUI_T(KC_J)
-#define HR_K   LALT_T(KC_K)
-#define HR_L   LCTL_T(KC_L)
-#define HR_SC  LSFT_T(KC_SCLN)
+#define HR_J   LT(_LOWER, KC_J)
+#define HR_K   LT(_RAISE, KC_K)
+
+// Top Row Mods
+// left hand
+#define TR_R   LCMD_T(KC_R)
+#define TR_E   LALT_T(KC_E)
+// right hand
+#define TR_U   LCMD_T(KC_U)
+#define TR_I   LALT_T(KC_I)
 
 // Tap Dance
 // ---------------------------
@@ -67,9 +71,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_QWERTY] = LAYOUT_split_3x5_2(
   //,--------------------------------------------.                    ,--------------------------------------------.
-         KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                         KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,
+         KC_Q,    KC_W,    TR_E,    TR_R,    KC_T,                         KC_Y,    TR_U,    TR_I,    KC_O,    KC_P,
   //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
-         KC_A,    HR_S,    HR_D,    HR_F,    KC_G,                         KC_H,    HR_J,    HR_K,    HR_L, KC_SCLN,
+         KC_A,    KC_S,    HR_D,    HR_F,    KC_G,                         KC_H,    HR_J,    HR_K,    KC_L, KC_SCLN,
   //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
          KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,
   //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
@@ -123,14 +127,9 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 // Set tapping term for specific keys
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case BSP_RSE:
-        case LOW_TAB:
+        case BSP_CTL:
+        case TAB_MEH:
             return 150;
-		case SFT_ENT:
-			return 110;
-        case HR_A:
-        case HR_S:
-            return TAPPING_TERM + 125;
         default:
             return TAPPING_TERM;
     }
