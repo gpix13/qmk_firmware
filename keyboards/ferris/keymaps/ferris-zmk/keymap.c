@@ -23,6 +23,7 @@ enum {
 // thumb key assignments
 #define LOW_TAB  LT(_LOWER, KC_TAB)
 #define BSP_RSE  LT(_RAISE, KC_BSPC)
+#define BSP_CTL  LCTL_T(KC_BSPC)
 #define SFT_ENT  LSFT_T(KC_ENT)
 
 // Home Row Mods
@@ -71,7 +72,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
          KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,
   //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
-                              MO(_LOWER), KC_LSFT,                       KC_SPC, BSP_RSE
+                              MO(_LOWER), KC_LSFT,                       KC_SPC, BSP_CTL
                              //`-----------------'                    `-----------------'
   ),
 
