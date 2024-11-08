@@ -127,9 +127,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Set tapping term for specific keys
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
+        case TR_E:
+        case TR_R:
+        case TR_U:
+        case TR_I:
+            return 300;
         case BSP_CTL:
         case TAB_MEH:
-            return 150;
+           return 150;
         default:
             return TAPPING_TERM;
     }
@@ -138,7 +143,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 // -----------------------------------------------------------------------------
 //                               TAP DANCE
 // -----------------------------------------------------------------------------
-/*
+
 extern bool g_suspend_state;
 #define GET_TAP_KC(dual_role_key) dual_role_key & 0xFF
 uint16_t last_keycode = KC_NO;
@@ -194,9 +199,8 @@ void dance_1_finished(tap_dance_state_t *state, void *user_data) {
    dance_state.step = dance_1_dance_step(state);
    switch (dance_state.step) {
       case SINGLE_TAP: register_code16(KC_Q); break;
-      case SINGLE_HOLD: register_code16(COPY); break;
-      case DOUBLE_TAP: register_code16(KC_Q); register_code16(KC_Q); break;
-      case DOUBLE_SINGLE_TAP: tap_code16(KC_Q); register_code16(KC_Q);
+      case SINGLE_HOLD: register_code16(KC_Q); break;
+      case DOUBLE_TAP: register_code16(KC_ESC); break;
    }
 }
 
@@ -204,13 +208,12 @@ void dance_1_reset(tap_dance_state_t *state, void *user_data) {
    wait_ms(10);
    switch (dance_state.step) {
       case SINGLE_TAP: unregister_code16(KC_Q); break;
-      case SINGLE_HOLD: unregister_code16(COPY); break;
-      case DOUBLE_TAP: unregister_code16(KC_Q); break;
-      case DOUBLE_SINGLE_TAP: unregister_code16(PASTE); break;
+      case SINGLE_HOLD: unregister_code16(KC_Q); break;
+      case DOUBLE_TAP: unregister_code16(KC_ESC); break;
    }
    dance_state.step = 0;
 }
-
+/*
 void on_dance_2(tap_dance_state_t *state, void *user_data);
 uint8_t dance_2_dance_step(tap_dance_state_t *state);
 void dance_2_finished(tap_dance_state_t *state, void *user_data);
@@ -259,10 +262,10 @@ void dance_2_reset(tap_dance_state_t *state, void *user_data) {
    dance_state.step = 0;
 }
 
+*/
 
 tap_dance_action_t tap_dance_actions[] = {
     [DANCE_1] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_1, dance_1_finished, dance_1_reset),
-    [DANCE_2] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_2, dance_2_finished, dance_2_reset),
+    //[DANCE_2] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_2, dance_2_finished, dance_2_reset),
 };
 
-*/
