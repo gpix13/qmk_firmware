@@ -18,7 +18,8 @@ enum {
 };
 
 // miscellaneous shortcuts
-#define xxxxxxx XXXXXXX
+#define xxx XXXXXXX
+#define ___ _______
 
 // thumb key assignments
 #define LOW_TAB  LT(_LOWER, KC_TAB)
