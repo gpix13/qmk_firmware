@@ -27,7 +27,6 @@ enum {
 
 // Home Row Mods
 // left hand
-#define HR_A   LSFT_T(KC_A)
 #define HR_S   LCTL_T(KC_S)
 #define HR_D   LALT_T(KC_D)
 #define HR_F   LGUI_T(KC_F)
@@ -35,7 +34,6 @@ enum {
 #define HR_J   LGUI_T(KC_J)
 #define HR_K   LALT_T(KC_K)
 #define HR_L   LCTL_T(KC_L)
-#define HR_SC  LSFT_T(KC_SCLN)
 
 // Tap Dance
 // ---------------------------
@@ -47,8 +45,6 @@ enum {
 // shortcuts
 #define HOME     G(KC_LEFT)
 #define END      G(KC_RIGHT)
-// #define COPY     G(KC_C)
-// #define PASTE    G(KC_V)
 
 // oneshots
 // #define OSALT    OSM(MOD_LALT)
@@ -57,8 +53,6 @@ enum {
 // #define OSSFT    OSM(MOD_LSFT)
 #define SCREEN4  G(S(KC_4))
 #define SCREEN5  G(S(KC_5))
-// #define DIVVY    G(KC_E)
-// #define ONEPASS  G(KC_NONE)
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -126,9 +120,6 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
             return 150;
 		case SFT_ENT:
 			return 110;
-        case HR_A:
-        case HR_S:
-            return TAPPING_TERM + 125;
         default:
             return TAPPING_TERM;
     }
