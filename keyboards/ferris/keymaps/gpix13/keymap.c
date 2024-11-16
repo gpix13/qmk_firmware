@@ -11,12 +11,6 @@ enum layers {
     _ADJUST,  // infrequently used symbols
 };
 
-// Tap Dance definitions
-enum {
-    DANCE_1,
-    DANCE_2,
-};
-
 // miscellaneous shortcuts
 #define xxx XXXXXXX
 #define ___ _______
@@ -36,13 +30,6 @@ enum {
 #define HR_K   LALT_T(KC_K)
 #define HR_L   LCTL_T(KC_L)
 
-// Tap Dance
-// ---------------------------
-// tap: Q, hold: COPY
-#define TD_Q   TD(DANCE_1)
-// tap: W, hold: PASTE
-#define TD_W   TD(DANCE_2)
-
 // shortcuts
 #define HOME     G(KC_LEFT)
 #define END      G(KC_RIGHT)
@@ -55,6 +42,15 @@ enum {
 #define SCREEN4  G(S(KC_4))
 #define SCREEN5  G(S(KC_5))
 
+// Tap Dance definitions
+enum {
+    DANCE_1,
+    DANCE_2,
+};
+
+// Tap Dance
+#define TD_Q   TD(DANCE_1)
+#define TD_W   TD(DANCE_2)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
