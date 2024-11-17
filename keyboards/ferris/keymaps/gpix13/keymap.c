@@ -11,10 +11,6 @@ enum layers {
     _ADJUST,
 };
 
-// miscellaneous shortcuts
-#define xxx XXXXXXX
-#define ___ _______
-
 // thumb key assignments
 #define LOW_TAB  LT(_LOWER, KC_TAB)
 #define BSP_RSE  LT(_RAISE, KC_BSPC)
@@ -31,6 +27,7 @@ enum layers {
 #define HR_L   LCTL_T(KC_L)
 
 // shortcuts
+#define xxxxxxx  KC_NO
 #define HOME     G(KC_LEFT)
 #define END      G(KC_RIGHT)
 
@@ -63,23 +60,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_LOWER] = LAYOUT_split_3x5_2(
     KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC, /* | */ KC_PLUS, KC_7, KC_8, KC_9, KC_TILD,
-    KC_PIPE, KC_GRV, ___, ___, KC_EQL,        /* | */ KC_MINS, KC_4, KC_5, KC_6, ___,
-    KC_BSLS, ___, KC_ASTR, KC_AMPR, KC_CIRC,  /* | */ KC_UNDS, KC_1, KC_2, KC_3, ___,
-                                   ___, ___,  /* | */ ___, KC_0
+    KC_PIPE, KC_GRV, _______, _______, KC_EQL,        /* | */ KC_MINS, KC_4, KC_5, KC_6, _______,
+    KC_BSLS, _______, KC_ASTR, KC_AMPR, KC_CIRC,  /* | */ KC_UNDS, KC_1, KC_2, KC_3, _______,
+                                   _______, _______,  /* | */ _______, KC_0
   ),
 
   [_RAISE] = LAYOUT_split_3x5_2(
-    KC_ESC, ___, ___, ___, KC_MPLY,  /* | */ ___, KC_PGDN, KC_PGUP,    HOME,     END,
-    ___, ___, ___, KC_MNXT, KC_VOLU, /* | */ KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, ___,
-    ___, ___, ___, KC_MPRV, KC_VOLD, /* | */ ___, SCREEN4, SCREEN5, ___, ___,
-                           ___, ___, /* | */ ___, ___
+    KC_ESC, _______, _______, _______, KC_MPLY,  /* | */ _______, KC_PGDN, KC_PGUP,    HOME,     END,
+    _______, _______, _______, KC_MNXT, KC_VOLU, /* | */ KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, _______,
+    _______, _______, _______, KC_MPRV, KC_VOLD, /* | */ _______, SCREEN4, SCREEN5, _______, _______,
+                           _______, _______, /* | */ _______, _______
   ),
 
   [_ADJUST] = LAYOUT_split_3x5_2(
     KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, /* | */ KC_F6, KC_F7, KC_F8, KC_F9, KC_F10,
-    xxx, xxx, xxx, xxx, xxx,           /* | */ xxx, xxx, xxx, xxx, xxx,
-    xxx, xxx, xxx, xxx, QK_BOOT,       /* | */ xxx, xxx, xxx, xxx, xxx,
-                   xxx, xxx,           /* | */ xxx, xxx
+    xxxxxxx, xxxxxxx, xxxxxxx, xxxxxxx, xxxxxxx,           /* | */ xxxxxxx, xxxxxxx, xxxxxxx, xxxxxxx, xxxxxxx,
+    xxxxxxx, xxxxxxx, xxxxxxx, xxxxxxx, QK_BOOT,       /* | */ xxxxxxx, xxxxxxx, xxxxxxx, xxxxxxx, xxxxxxx,
+                   xxxxxxx, xxxxxxx,           /* | */ xxxxxxx, xxxxxxx
   ),
 
 };
