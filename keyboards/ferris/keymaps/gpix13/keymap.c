@@ -5,10 +5,10 @@
 
 // layer definitions
 enum layers {
-    _QWERTY,  // the default layer
-    _LOWER,   // extra layer
-    _RAISE,   // frequently used symbols
-    _ADJUST,  // infrequently used symbols
+    _QWERTY,
+    _LOWER,
+    _RAISE,
+    _ADJUST,
 };
 
 // miscellaneous shortcuts
