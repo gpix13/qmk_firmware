@@ -19,7 +19,6 @@ COMB(lbracket,             KC_LBRC,        KC_V, KC_B)
 
 // Right bottom row
 COMB(rbracket,             KC_RBRC,        KC_N, KC_M)
-COMB(tab,                  KC_TAB,         KC_M, KC_COMM)
 
 // left handed combos with COMMAND
 COMB(copy,                 G(KC_C),        MO(1), KC_C)
