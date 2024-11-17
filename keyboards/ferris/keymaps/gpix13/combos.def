@@ -6,13 +6,13 @@ COMB(rcurly,               KC_RCBR,        KC_Y, KC_U)
 COMB(eql,                  KC_EQL,         KC_U, KC_I)
 
 // Left home row
-COMB(lparen,               KC_LPRN,        LGUI_T(KC_F), KC_G)
-COMB(dquo,                 KC_DQUO,        LCTL_T(KC_S), LGUI_T(KC_F))
+COMB(lparen,               KC_LPRN,        HR_F, KC_G)
+COMB(dquo,                 KC_DQUO,        HR_S, HR_F)
 
 // Right home row
-COMB(rparen,               KC_RPRN,        KC_H, LGUI_T(KC_J))
-COMB(squo,                 KC_QUOT,        LGUI_T(KC_J), LCTL_T(KC_L))
-COMB(entr,                 KC_ENT,         LGUI_T(KC_J), LALT_T(KC_K))
+COMB(rparen,               KC_RPRN,        KC_H, HR_J)
+COMB(squo,                 KC_QUOT,        HR_J, HR_L)
+COMB(entr,                 KC_ENT,         HR_J, HR_K)
 
 // Left bottom row
 COMB(lbracket,             KC_LBRC,        KC_V, KC_B)
@@ -21,11 +21,14 @@ COMB(lbracket,             KC_LBRC,        KC_V, KC_B)
 COMB(rbracket,             KC_RBRC,        KC_N, KC_M)
 
 // left handed combos with COMMAND
-COMB(copy,                 G(KC_C),        MO(1), KC_C)
-COMB(cut,                  G(KC_Z),        MO(1), KC_X)
-COMB(paste,                G(KC_V),        MO(1), KC_V)
-COMB(undo,                 G(KC_Z),        MO(1), KC_Z)
-COMB(selectall,            G(KC_A),        MO(1), KC_A)
-COMB(divvy,                G(KC_E),        MO(1), KC_E)
-COMB(quit,                 G(KC_Q),        MO(1), KC_Q)
+COMB(copy,                 G(KC_C),        LOW_TAB, KC_C)
+COMB(cut,                  G(KC_Z),        LOW_TAB, KC_X)
+COMB(paste,                G(KC_V),        LOW_TAB, KC_V)
+COMB(undo,                 G(KC_Z),        LOW_TAB, KC_Z)
+COMB(selectall,            G(KC_A),        LOW_TAB, KC_A)
+COMB(divvy,                G(KC_E),        LOW_TAB, KC_E)
+COMB(quit,                 G(KC_Q),        LOW_TAB, KC_Q)
 
+COMB(save_vim,             SAVE_VIM,       KC_M, KC_COMM, KC_DOT)
+COMB(vsp,                  VIM_VS,         KC_X, KC_C)
+COMB(sp,                   VIM_SP,         HR_S, KC_X)
