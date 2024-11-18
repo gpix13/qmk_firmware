@@ -45,7 +45,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case BSP_RSE:
         case LOW_TAB:
-            return 150;
+            return 140;
         default:
             return TAPPING_TERM;
     }
