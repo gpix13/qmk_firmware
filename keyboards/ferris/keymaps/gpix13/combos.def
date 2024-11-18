@@ -21,13 +21,14 @@ COMB(lbracket,             KC_LBRC,        KC_V, KC_B)
 COMB(rbracket,             KC_RBRC,        KC_N, KC_M)
 
 // left handed combos with COMMAND
+COMB(quit,                 G(KC_Q),        LOW_TAB, KC_Q)
+COMB(cmd_w,                G(KC_W),        LOW_TAB, KC_W)
+COMB(divvy,                G(KC_E),        LOW_TAB, KC_E)
+COMB(selectall,            G(KC_A),        LOW_TAB, KC_A)
 COMB(copy,                 G(KC_C),        LOW_TAB, KC_C)
 COMB(cut,                  G(KC_Z),        LOW_TAB, KC_X)
 COMB(paste,                G(KC_V),        LOW_TAB, KC_V)
 COMB(undo,                 G(KC_Z),        LOW_TAB, KC_Z)
-COMB(selectall,            G(KC_A),        LOW_TAB, KC_A)
-COMB(divvy,                G(KC_E),        LOW_TAB, KC_E)
-COMB(quit,                 G(KC_Q),        LOW_TAB, KC_Q)
 
 COMB(save_vim,             SAVE_VIM,       KC_M, KC_COMM, KC_DOT)
 COMB(vsp,                  VIM_VS,         KC_X, KC_C)
