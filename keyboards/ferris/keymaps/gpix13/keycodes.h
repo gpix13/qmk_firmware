@@ -19,6 +19,7 @@ enum custom_keycodes {
     SAVE_VIM,
     VIM_VS,
     VIM_SP,
+    CLOSE_WIN,
 };
 
 // Home Row Mods

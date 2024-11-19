@@ -73,6 +73,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 tap_code(KC_S);
             }
             return false;
+        case CLOSE_WIN:
+            if (record->event.pressed) {
+                tap_code16(C(KC_W));
+                tap_code(KC_Q);
+            }
+            return false;
         default:
             return true;
     }
