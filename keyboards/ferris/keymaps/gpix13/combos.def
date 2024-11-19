@@ -12,7 +12,7 @@ COMB(dquo,                 KC_DQUO,        HR_S, HR_F)
 // Right home row
 COMB(rparen,               KC_RPRN,        KC_H, HR_J)
 COMB(squo,                 KC_QUOT,        HR_J, HR_L)
-COMB(entr,                 KC_ENT,         HR_J, HR_K)
+COMB(entr,                 KC_ENT,         HR_J, HR_K, HR_L)
 
 // Left bottom row
 COMB(lbracket,             KC_LBRC,        KC_V, KC_B)
